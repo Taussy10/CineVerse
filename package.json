@@ -13,7 +13,7 @@
     "@react-navigation/native-stack": "^6.9.18",
     "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
-    "expo": "~50.0.7",
+    "expo": "^50.0.8",
     "expo-av": "~13.10.5",
     "expo-linear-gradient": "^12.7.2",
     "expo-status-bar": "~1.11.1",

@@ -50,9 +50,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
     return (
       <ScrollView >
         <LinearGradient 
-       colors={['#141E30', "#243B55",'#243B55']} 
-       
-      >
+       colors={['#141E30', "#243B55",'#243B55']}  >
         {/* <StatusBar /> */}
 
     <SafeAreaView style={{flex:1,  padding:20, }}>

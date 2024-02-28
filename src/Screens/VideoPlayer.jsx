@@ -1,64 +1,14 @@
-// import { FlatList, StyleSheet, Text, View } from 'react-native'
-// import React,{useState} from 'react'
-// import { SafeAreaView } from 'react-native-safe-area-context'
-
-
-// const VideoPlayer = ({route}) => {
-
-// const [video, setVideo] = useState([])
-
-// const id = route.params.id;
-
-
-
-
-// // console.log(id,"videoPlayer");
-
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       accept: 'application/json',
-//       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWRjYzZmZWE0YjE0YmU3Njc1ZTgxMzNjZmViY2NlZiIsInN1YiI6IjY1MGRiMzRjM2Q3NDU0MDEzODdhYzhiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.invVJQqNIxcKdXNOLBVJ6UDCC99Kh0euwIFHXuUVmT4'
-//     }
-//   };
-  
-//   fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`, options)
-//     .then(response => response.json())
-//     .then(response => { //console.log(response)   
-//     setVideo(response.results) 
-//     })
-//     .catch(err => console.error(err));
-
-//     console.log(video,"hello");
-
-
-//   return (
-//     <SafeAreaView style={{flex:1, backgroundColor:'yellow'}}>
-
-//       <FlatList 
-//       data={video}
-//       renderItem={({item}) => (
-
-//        <Text> {`https://www.youtube.com/watch?v=${item.key}`}   </Text> 
-//       ) }
-//       />
-//     </SafeAreaView>
-//   )
-// }
-
-// export default VideoPlayer
-
-
-
-// import * as React from 'react';
-import { View, StyleSheet, Button, FlatList, Text } from 'react-native';
+import { View, StyleSheet, Button, FlatList, Text, ScrollView } from 'react-native';
 import { Video, ResizeMode } from 'expo-av';
 import { useState , useRef, useCallback} from 'react';
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 // import YoutubeIframe from 'react-native-youtube-iframe';
 import YoutubePlayer from "react-native-youtube-iframe";
-
+import { responsiveWidth, responsiveHeight } from 'react-native-responsive-dimensions';
+import { LinearGradient } from 'expo-linear-gradient';
+// import { Header } from 'react-native/Libraries/NewAppScreen';
+import Header from '../Component/Header'
 
 const VideoPlayer = ({route}) => {
   const video = React.useRef(null);
@@ -103,44 +53,56 @@ const id = route.params.id;
     // console.log(movieVideo ,"hello");
 
   return (
-    <SafeAreaView style={styles.container}>
-
-
+    <ScrollView> 
+    <SafeAreaView style={{flex: 1, }}>
+<LinearGradient 
+       colors={['#141E30', "#243B55",'#243B55']}  >
+<Header  />
  <FlatList 
 //  horizontal
       data={movieVideo}
       renderItem={({item}) => (
 
-        <View> 
+        <View style={{backgroundColor:'red', }}> 
+        
+
 {/* Youtube */}
-<View>
+{/* style={{backgroundColor:'red'}} */}
+<LinearGradient  
+   colors={['#141E30', "white",'#243B55']} 
+   style={styles.gradient}
+  >
+    {/* style={{backgroundColor:'red'}} */}
+{/* <View  > */}
       <YoutubePlayer
-        height={300}
+      // 200 is it's peak point
+        height={218}
         play={playing}
         videoId={`${item.key}`}
         onChangeState={onStateChange}
+        style={{backgroundColor:'green'}}
       />
       {/* <Button title={playing ? "pause" : "play"} onPress={togglePlaying} /> */}
-    </View>
+    {/* </View> */}
+    </LinearGradient>
 </View>
       ) }
       />
+          </LinearGradient>
+
     </SafeAreaView>
+    </ScrollView>
   );
 }
 
 export default VideoPlayer;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-  },
   video: {
     alignSelf: 'center',
-    width: 320,
-    height: 200,
+    height: responsiveHeight(80) ,
+    // width: responsiveWidth(90),
+    backgroundColor:'red',
   },
   // buttons: {
   //   flexDirection: 'row',
