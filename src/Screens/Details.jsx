@@ -1,35 +1,88 @@
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, ScrollView, FlatList,StatusBar, Pressable } from 'react-native'
+import React,{useState, useEffect} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
+import Cast from '../Component/Cast'
+import { LinearGradient } from 'expo-linear-gradient'
+import Header from '../Component/Header'
+import SimillarMovies from '../Component/SimillarMovies'
 
 // () 
-const Details = ({route}) => {
-  // route.params.parameterName 
-    const data = route.params.data;
-    console.log(data, "Data of movies");
+
+   
+const Details = ({ route , navigation}) => {
+  const [cast, setCast] = useState([]);
+ // route.params.parameterName 
+
+
+ useEffect(() => {
+  console.log(fetchData(), "hello" ); 
+console.log(cast, "cast"); }, [])
+ const data = route.params.data;
+//  console.log(data, "Data of movies");
+
+const id = data.id;
+console.log(id, "Details");
+function fetchData() {
+  
+
+// console.log(id);
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWRjYzZmZWE0YjE0YmU3Njc1ZTgxMzNjZmViY2NlZiIsInN1YiI6IjY1MGRiMzRjM2Q3NDU0MDEzODdhYzhiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.invVJQqNIxcKdXNOLBVJ6UDCC99Kh0euwIFHXuUVmT4'
+  }
+};
+
+fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options)
+  .then(response => response.json())
+  .then(response => { 
+ setCast(response.cast);
+    console.log(response, "response")
+  })
+  .catch(err => console.error(err));
+
+}
+
+
+  
     return (
-      <ScrollView>
-    <SafeAreaView style={{flex:1, backgroundColor:'lightblue', padding:20}}>
+      <ScrollView >
+        <LinearGradient 
+       colors={['#141E30', "#243B55",'#243B55']} 
+       
+      >
+        {/* <StatusBar /> */}
+
+    <SafeAreaView style={{flex:1,  padding:20, }}>
+    <Header/>
+
         {/* <View style={{  backgroundColor:'lightgreen',marginRight:10, marginLeft:10, marginTop:30  }}> */}
-      
+        <LinearGradient 
+       colors={['#141E30', "#243B55",'grey']} 
+      >
+        <Pressable onPress={()=> navigation.navigate("VideoPlayer", {
+          id:id
+        }) }> 
       <Image style={styles.image} source={{uri:`https://image.tmdb.org/t/p/w500/${data.poster_path}`}}/>
         {/* </View> */}
-        <Text style={{fontSize:25, }}>{data.title}</Text>
-        <Text style={{fontSize:20 }}>Overview</Text>
+        </Pressable>
+        <Text style={{fontSize:35, fontWeight:'700' , textAlign:'center' }}>{data.title}</Text>
+        <Text style={{fontSize:30 }}>Overview</Text>
         {/* slice{slice means so it cut chars except when you say cut between two chars } function: when you use (10) it will remove first 10 character 
         but if you use (-10) then it will remove last characters but 
         if you use (0,10) it will remove all chacters except 1-10 chars */}
-        <Text style={{fontSize:25,}}>{data.overview.slice(0,142)}... </Text>
+        <Text style={{fontSize:25,color:'white'}}>{data.overview.slice(0,142)}... </Text>
  
-   <View style={{ flexDirection:'row', justifyContent:'space-between', marginBottom:10, marginTop:30, backgroundColor:'lightgreen'}}>
-   <Text style={{fontSize:20 }}>Language</Text>
-   <Text style={{fontSize:20 }}>Released date</Text>
-   <Text style={{fontSize:20 }}>Rating</Text>
+   <View style={{ flexDirection:'row', justifyContent:'space-between', marginBottom:5, marginTop:30}}>
+   <Text style={{fontSize:20 , fontWeight:'700' }}>Laguage</Text>
+   <Text style={{fontSize:20, fontWeight:'700'}}>Released date</Text>
+   <Text style={{fontSize:20, fontWeight:'700'}}>Rating</Text>
    </View>
 
-   <View style={{ flexDirection:'row', justifyContent:'space-between'}}>
-   <Text style={{fontSize:20 }}>{data.original_language}</Text>
+   <View style={{ flexDirection:'row', justifyContent:'space-between', alignItems:'center', }}>
+   <Text style={{fontSize:20, textAlign:'center',  width: responsiveWidth(25) }}>{data.original_language}</Text>
    <Text style={{fontSize:20 }}>{data.release_date}</Text>
    <Text style={{fontSize:20 }}>{data.vote_average}</Text>
    </View>
@@ -39,20 +92,30 @@ const Details = ({route}) => {
     {/* <Text style={{fontSize:20 }}>Rating</Text> */}
        </View>
 
-       <Text style={{fontSize:20 }}>Director: {data.release_date}</Text>
-    <Text style={{fontSize:20 }}>Writer: {data.release_date}</Text>
-    <Text style={{fontSize:20 }}>{data.release_date}</Text>
+
+{/* data is in fetchAPI and I want to use it find it how later */}
+       {/* <Text style={{fontSize:20 }}>Director: {item.Directing}</Text>
+    <Text style={{fontSize:20 }}>Writer: {item.release_date}</Text>
+    <Text style={{fontSize:20 }}>{item.release_date}</Text> */}
 
 {/* You can allign text: center , justify and allignitems works only on parent component */}
+{/* responsiveHeight(10) , responsiveWidth(10)*/}
 
-     <Text style={{textAlign:'center'}}>Top Cast</Text>
-     <View style={{borderRadius:"50%", height: responsiveHeight(10) , width: responsiveWidth(10)  , backgroundColor:"red" }}> 
-     
-     <Text >Top Cast</Text>
-     </View>
 
+
+
+
+         {/* for cast name */}
+
+             <Cast data={cast} />
+         
+
+     {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500//7UIm9RoBnlqS1uLlbElAY8urdWD.jpg` }}   style={{height:100, width:100, backgroundColor:'red'}}/> */}
+     <SimillarMovies particularMovieData={data}/>
+     </LinearGradient>
 
     </SafeAreaView>
+    </LinearGradient>
     </ScrollView>
   )
 }
@@ -63,5 +126,7 @@ const styles = StyleSheet.create({
     image:{
         height: responsiveHeight(70) ,
         // width: responsiveWidth(90)
+        borderRadius: 70,
+
     }
 })

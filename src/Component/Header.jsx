@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import LogoSVG from '../../assets/Images/SVG/Logo'
+import LogoSVG from '../../assets/SVG/Logo'
 import { LinearGradient } from 'expo-linear-gradient'
 
 const Header = () => {
