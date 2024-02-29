@@ -6,6 +6,7 @@ import Cast from '../Component/Cast'
 import { LinearGradient } from 'expo-linear-gradient'
 import Header from '../Component/Header'
 import SimillarMovies from '../Component/SimillarMovies'
+import VideoClips from '../Component/VideoClips'
 
 // () 
 
@@ -60,7 +61,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
         <LinearGradient 
        colors={['#141E30', "#243B55",'grey']} 
       >
-        <Pressable onPress={()=> navigation.navigate("VideoPlayer", {
+        <Pressable onPress={()=> navigation.navigate("Faq",  {
           id:id
         }) }> 
       <Image style={styles.image} source={{uri:`https://image.tmdb.org/t/p/w500/${data.poster_path}`}}/>
@@ -110,6 +111,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
 
      {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500//7UIm9RoBnlqS1uLlbElAY8urdWD.jpg` }}   style={{height:100, width:100, backgroundColor:'red'}}/> */}
      <SimillarMovies particularMovieData={data}/>
+     <VideoClips particularMovieData={data} />
      </LinearGradient>
 
     </SafeAreaView>

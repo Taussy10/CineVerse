@@ -10,7 +10,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 // import { Header } from 'react-native/Libraries/NewAppScreen';
 import Header from '../Component/Header'
 
-const VideoPlayer = ({route}) => {
+import CardsTitle from './CardsTitle';
+const VideoClips  = ({route,particularMovieData  }) => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
 const [movieVideo, setMovieVideo] = useState([])
@@ -28,7 +29,8 @@ const togglePlaying = useCallback(() => {
 }, []);
 
 
-const id = route.params.id;
+// const id = route.params.id;
+const id = particularMovieData.id;
 
 
 
@@ -57,7 +59,11 @@ const id = route.params.id;
     <SafeAreaView style={{flex: 1, }}>
 <LinearGradient 
        colors={['#141E30', "#243B55",'#243B55']}  >
-<Header  />
+
+
+<CardsTitle name ="Video Clips"  />
+{/* <Label title="Video Clips" /> */}
+
  <FlatList 
  horizontal
       data={movieVideo}
@@ -76,14 +82,14 @@ const id = route.params.id;
 {/* <View  > */}
       <YoutubePlayer
       // 200 is it's peak point
-        height={218}
-        width={390}
+        height={200}
+        width={320}
         play={playing}
         videoId={`${item.key}`}
         onChangeState={onStateChange}
         style={{backgroundColor:'green'}}
       />
-      <Text style={{fontSize:18, textAlign:'center', color:'white', fontWeight:'600'}}>{item.name.slice(0,28)}..</Text>
+      <Text style={{fontSize:18, textAlign:'center', color:'white', fontWeight:'600'}}>{item.name.slice(0,38)}..</Text>
       {/* <Button title={playing ? "pause" : "play"} onPress={togglePlaying} /> */}
     {/* </View> */}
     </LinearGradient>
@@ -97,7 +103,7 @@ const id = route.params.id;
   );
 }
     {/* </ScrollView> */}
-export default VideoPlayer;
+export default VideoClips ;
 
 const styles = StyleSheet.create({
   video: {

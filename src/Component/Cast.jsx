@@ -18,14 +18,14 @@ const Cast = ({data}) => {
               
 
    
-              {/* <Image sourcea={{ uri: `https://image.tmdb.org/t/p/w500/${item.poster_path}` }} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} /> */}
+              {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}` }} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} /> */}
 
-              {item.poster_path ? (
-                            <Image source={{ uri: `https://image.tmdb.org/t/p/w500/${item.poster_path}` }} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} />
+               {`https://image.tmdb.org/t/p/w500/${item.profile_path}` ? (
+                            <Image source={{ uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}` }} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} />
         ) : (
           <Image source={require('../../assets/Images/avatar.png')} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} />
 
-        )} 
+        )}  
   
 
                 <Text>{item.original_name}</Text>

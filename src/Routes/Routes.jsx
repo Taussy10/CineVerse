@@ -6,6 +6,7 @@ import Home from '../Screens/Home'
 import Splash from '../Screens/Splash'
 import VideoPlayer from '../Screens/VideoPlayer'
 import Details from '../Screens/Details'
+import Faq from '../Screens/Faq'
 const stack = createNativeStackNavigator()
 const Routes = () => {
     
@@ -16,6 +17,7 @@ const Routes = () => {
         <stack.Screen  name='Home' component={Home}/>
         <stack.Screen  name='Details' component={Details}/>
         <stack.Screen  name='VideoPlayer' component={VideoPlayer}/>
+        <stack.Screen  name='Faq' component={Faq}/>
     </stack.Navigator>
     // <View>
     //   <Text>Routes</Text>

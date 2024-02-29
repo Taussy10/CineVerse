@@ -3,6 +3,8 @@ import React,{useState} from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import {  responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 
+import CardsTitle from './CardsTitle'
+
 const SimillarMovies = ({particularMovieData }) => {
     // console.log(particularMovieData, "particularMovieData");
 
@@ -42,12 +44,8 @@ const SimillarMovies = ({particularMovieData }) => {
   return (
     <View style={{flex:1, backgroundColor:'green', marginTop:20, }}>
 
-<LinearGradient  
-   colors={['#141E30', "white",'#243B55']} // Example gradient colors
-   style={{width:" 100%", alignItems:'center',}}
-  >
-      <Text style={{color:'black' , fontWeight:'bold', fontSize: 20 ,  }}>Simillar Movies</Text>
-      </LinearGradient>
+<CardsTitle name ="Simillar Movies"  />
+
       <FlatList 
       horizontal
       data={simillarMovies}
