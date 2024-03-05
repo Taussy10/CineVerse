@@ -3,6 +3,7 @@ import { View, StyleSheet, Button, Text , TextInput, TouchableOpacity} from 'rea
 import { Video, ResizeMode } from 'expo-av';
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import { LinearGradient } from 'expo-linear-gradient'
+import Search from '../Screens/Search';
 
 export default function App() {
   const video = React.useRef(null);
@@ -13,6 +14,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+
+{/* Put search Here */}
+
 
       <Video
         ref={video}
@@ -30,17 +34,9 @@ export default function App() {
    style={styles.gradient}
   > */}
 
-<View style={{display:'flex', flexDirection:'row' , justifyContent:'center', marginBottom:270}}> 
-        <TextInput style={styles.input} 
-         placeholder='Search Movies'
-         keyboardType= 'default'
-         />
-         
-         <TouchableOpacity style={{backgroundColor:'green' , justifyContent:'center',  borderTopRightRadius:20,
-      borderBottomRightRadius:20, padding:10}}>
-         <Text style={{color:'white'}}> Search </Text>  
-         </TouchableOpacity>
-         </View>
+
+
+
         {/* <Text style={{fontSize: 70 , color:'white',         marginTop:20,
         }}>Welcome</Text> 
          <Text style={{fontSize: 20 , color:'white', marginBottom:50,}}>Watch millions of movies & TV shows</Text>  */}
@@ -90,16 +86,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  input:{
-    height:responsiveHeight(6),
-    width: responsiveWidth(75),
-    padding:12,
-    backgroundColor:'white',
-    color:'black',
-    // borderRadius: 20,
-    borderTopLeftRadius:20,
-    borderBottomLeftRadius:20,
-    
-  },
+
  
 });

@@ -20,10 +20,13 @@ const Details = ({ route , navigation}) => {
   console.log(fetchData(), "hello" ); 
 console.log(cast, "cast"); }, [])
  const data = route.params.data;
+
 //  console.log(data, "Data of movies");
 
 const id = data.id;
-console.log(id, "Details");
+console.log(id, "Id from Details");
+
+
 function fetchData() {
   
 
@@ -62,8 +65,8 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
        colors={['#141E30', "#243B55",'grey']} 
       >
         <Pressable onPress={()=> navigation.navigate("Faq",  {
-          id:id
-        }) }> 
+          data:data
+        })                     }> 
       <Image style={styles.image} source={{uri:`https://image.tmdb.org/t/p/w500/${data.poster_path}`}}/>
         {/* </View> */}
         </Pressable>
@@ -72,7 +75,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
         {/* slice{slice means so it cut chars except when you say cut between two chars } function: when you use (10) it will remove first 10 character 
         but if you use (-10) then it will remove last characters but 
         if you use (0,10) it will remove all chacters except 1-10 chars */}
-        <Text style={{fontSize:25,color:'white'}}>{data.overview.slice(0,142)}... </Text>
+        {/* <Text style={{fontSize:25,color:'white'}}>{data.overview.slice(0,142)}... </Text> */}
  
    <View style={{ flexDirection:'row', justifyContent:'space-between', marginBottom:5, marginTop:30}}>
    <Text style={{fontSize:20 , fontWeight:'700' }}>Laguage</Text>
@@ -106,12 +109,15 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
 
          {/* for cast name */}
 
-             <Cast data={cast} />
+{/* cast componnet */}
+             <Cast data={cast} navigation={navigation} />
          
 
      {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500//7UIm9RoBnlqS1uLlbElAY8urdWD.jpg` }}   style={{height:100, width:100, backgroundColor:'red'}}/> */}
-     <SimillarMovies particularMovieData={data}/>
-     <VideoClips particularMovieData={data} />
+     {/* <SimillarMovies particularMovieData={data}  navigation={navigation}/> */}
+
+     {/* <VideoClips particularMovieData={data}  /> */}
+
      </LinearGradient>
 
     </SafeAreaView>

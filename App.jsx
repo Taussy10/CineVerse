@@ -4,6 +4,7 @@ import Routes from './src/Routes/Routes';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
 import { store } from './src/Redux/Store';
+
 export default function App() {
   return (
 

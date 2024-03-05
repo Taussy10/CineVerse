@@ -9,12 +9,13 @@ const Header = () => {
     // Only in main Screen write SafeAreaView otherwise it will take even sapce in
     //  components in the name of safeAreaView and we use SafeAreaView
 // flex:1 , 
-    <View style={{flex:1,justifyContent:'center',  alignItems:'center', backgroundColor:'red', }}>
+    <View style={{justifyContent:'center',  alignItems:'center', backgroundColor:'red', }}>
       <LinearGradient  
    colors={['#141E30', "white",'#243B55']} // Example gradient colors
-   style={{width:"100%",alignItems:'center' }}
-  >
-      <LogoSVG/>
+   style={{width:"100%", alignItems:'center' }}
+  > 
+  {/* height:"5%", */}
+      <LogoSVG />
       </LinearGradient>
     </View>
   )

@@ -4,8 +4,9 @@ import { LinearGradient } from 'expo-linear-gradient'
 import {  responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 
 import CardsTitle from './CardsTitle'
+import { useNavigation } from '@react-navigation/native'
 
-const SimillarMovies = ({particularMovieData }) => {
+const SimillarMovies = ({particularMovieData, navigation }) => {
     // console.log(particularMovieData, "particularMovieData");
 
     const [simillarMovies, setSimillarMovies] = useState([])
@@ -40,6 +41,7 @@ const SimillarMovies = ({particularMovieData }) => {
     //     .catch(err => console.error(err));
         
     //  console.log(simillarMovies, "state");
+    // const navigation = useNavigation();
 
   return (
     <View style={{flex:1, backgroundColor:'green', marginTop:20, }}>
@@ -57,15 +59,14 @@ const SimillarMovies = ({particularMovieData }) => {
   />
 
 
-
-  {/* <Pressable  onPress={() => {navigation.navigate("Details", {
-    data: item
-  }) 
-} 
-}> */}
+    
+  <Pressable  onPress={()=> navigation.navigate("Faq",  {
+          id:id
+        })  
+}>
  <Image source={{uri:`https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}}
  style={styles.image}/>
- {/* </Pressable> */}
+ </Pressable>
  
     <Text style={{textAlign:'center', fontSize:18,fontWeight:'500', color:'white' }}>{item.original_title.slice(0,17)}..</Text>
 

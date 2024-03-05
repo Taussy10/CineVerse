@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View , Image, FlatList, Pressable} from 'react-native'
 import React from 'react'
-import { Movie } from '../Data/Data'
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import { useEffect, useState } from 'react'
 // import Apple from '../../assets/Images/Apple.png'
@@ -34,7 +33,7 @@ const Cards = ({navigation, data}) => {
 }>
   
 
- <Image source={{uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`}}
+   <Image  source={item.poster_path ? {uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`}: require("../../assets/Images/no-poster.png") }
  style={styles.image}/>
  </Pressable>
  
