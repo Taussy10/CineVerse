@@ -19,6 +19,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 const stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 import Details2 from '../Screens/Details2'
+import SearchScreen from '../Screens/SearchScreen'
 
 const Routes = () => {
     
@@ -32,6 +33,7 @@ const Routes = () => {
         {/* Made new screen for working with tab navigator*/}
         <stack.Screen name='TabRoutes' component={Tabs} />
         <stack.Screen  name='Search' component={Search}/>
+        <stack.Screen  name='SearchScreen' component={SearchScreen}/>
         <stack.Screen  name='Home' component={Home}/>
         <stack.Screen  name='Details' component={Details}/>
         <stack.Screen  name='Details2' component={Details2}/>
@@ -69,7 +71,7 @@ function Tabs() {
           ) 
     }}
     />
-    <Tab.Screen name="Search" component={Search}
+    {/* <Tab.Screen name="Search" component={Search}
     options={{
       tabBarLabel: "Search",
       tabBarIcon: (
@@ -79,7 +81,7 @@ function Tabs() {
 
           ) 
     }}
-    />
+    /> */}
     <Tab.Screen name="Account" component={Account}
     options={{
       tabBarLabel: "Account",

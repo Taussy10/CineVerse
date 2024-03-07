@@ -79,7 +79,7 @@ const Home = ({navigation}) => {
     <SafeAreaView style={{flex:1 }}>
         <Header/>
       {/* <Text>Hello</Text> */}
-       {/* <Search navigation={navigation}/> */}
+       <Search navigation={navigation}/>
         <Poster />
 
       <CardsTitle name ="Trending Movies" />

@@ -58,7 +58,7 @@ const [searchQuery, setSearchQuery] = useState('');
   
   <View style={{flex:1,marginTop:30,  }}>
     <StatusBar/>
-    <Header/>
+    {/* <Header/> */}
  
    <View style={styles.searchContainer}>
 
@@ -77,7 +77,9 @@ const [searchQuery, setSearchQuery] = useState('');
      <TouchableOpacity style={{backgroundColor:'green' , justifyContent:'center',  borderTopRightRadius:20,
   borderBottomRightRadius:20, padding:10}}
       onPress={()=> { handleSearch(); 
-        // navigation.navigate("Search") 
+        navigation.navigate("SearchScreen",{
+          data: searchResults,
+        }) 
        }}
       // onPress={() => {
       //   handleSearch();
@@ -87,35 +89,6 @@ const [searchQuery, setSearchQuery] = useState('');
   <Text style= {{color: 'white',}}>Search</Text>
       </TouchableOpacity>
       </View>
-
-   
-
-
-<FlatList 
-data={searchResults}
-keyExtractor={(item) => item.id.toString()}
-renderItem={({item}) => (
- <View style={{flex:1, backgroundColor:'red', }}>
-   <LinearGradient 
-          colors={['#141E30', "white",'#243B55']} 
-          >
-              {/* <Pressable  onPress={() => {navigation.navigate("Details2", {
-    data:searchResults
-  }) 
-} 
-}> */}
-  
- <Image source={item.backdrop_path ?{ uri: `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}: require("../../assets/Images/no-results.png") } style={styles.image} />
- {/* </Pressable> */}
-
- <Text style={{color:'white' , fontSize:20, fontWeight:'600', textAlign:'center', marginVertical:5,}}>{item.title}</Text>
-
- </LinearGradient>
-             {/* <Text style={{color:'white'}}>Hello</Text> */}
-    </View>
-)}
-/>
-
      </View>
   )
 }
@@ -152,19 +125,6 @@ const styles = StyleSheet.create({
   searchButtonText: {
     color: 'white',
   },
-  resultItem: {
-    // paddingVertical: 10,
-    // borderBottomWidth: 1,
-    // borderBottomColor: '#ccc',
-  },
-  image:{
-    height: responsiveHeight(30),
-    width: responsiveWidth(90),
-    resizeMode: 'contain',
-    // backgroundColor:'red',
-    borderRadius: 40,
-    // backgroundColor:'red',
-    margin:10,
-    // padding:50,
-},
+ 
+
 });

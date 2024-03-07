@@ -31,8 +31,6 @@ const Cards = ({navigation, data}) => {
   }) 
 } 
 }>
-  
-
    <Image  source={item.poster_path ? {uri:`https://image.tmdb.org/t/p/w500/${item.poster_path}`}: require("../../assets/Images/no-poster.png") }
  style={styles.image}/>
  </Pressable>
