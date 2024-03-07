@@ -8,7 +8,7 @@ import Header from '../Component/Header'
 import { LinearGradient } from 'expo-linear-gradient'
 import { getNowPlayingMovies } from '../Network/Network'
 import { getPopularMovies } from '../Network/Network'
-import Search from './Search'
+import Search from '../Component/Search'
 
 const Home = ({navigation}) => {
   const [nowPlayingData, setNowPlayingData] = useState([]);

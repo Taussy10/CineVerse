@@ -4,7 +4,7 @@ import { StyleSheet, Text, View , TextInput, FlatList, TouchableOpacity, ScrollV
 import React,{useState, useEffect} from 'react'
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import { LinearGradient } from 'expo-linear-gradient'
-import Header from '../Component/Header'
+import Header from './Header'
 import { StatusBar } from 'expo-status-bar'
 
 const Search = ({navigation}) => {
@@ -56,9 +56,8 @@ const [searchQuery, setSearchQuery] = useState('');
 // console.log(searchResults(), "searchresults");
   return (
   
-  <View style={{flex:1,marginTop:30,  }}>
+  <View style={{flex:1,marginTop:5,  }}>
     <StatusBar/>
-    {/* <Header/> */}
  
    <View style={styles.searchContainer}>
 

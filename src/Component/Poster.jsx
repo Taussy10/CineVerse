@@ -3,7 +3,7 @@ import { View, StyleSheet, Button, Text , TextInput, TouchableOpacity} from 'rea
 import { Video, ResizeMode } from 'expo-av';
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import { LinearGradient } from 'expo-linear-gradient'
-import Search from '../Screens/Search';
+import Search from './Search';
 
 export default function App() {
   const video = React.useRef(null);

@@ -6,9 +6,9 @@ import Home from '../Screens/Home'
 import Splash from '../Screens/Splash'
 import VideoPlayer from '../Screens/VideoPlayer'
 import Details from '../Screens/Details'
-import Faq from '../Screens/Faq'
+import Faq from '../Component/Faq'
 import CastDetails from '../Screens/CastDetails'
-import Search from '../Screens/Search'
+import Search from '../Component/Search'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 // import TabRoutes from './TabRoutes'
 // import House from 'react-native-vector-icons/FontAwesome6'
@@ -18,7 +18,6 @@ import Account from '../Screens/Account'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 const stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
-import Details2 from '../Screens/Details2'
 import SearchScreen from '../Screens/SearchScreen'
 
 const Routes = () => {
@@ -36,16 +35,13 @@ const Routes = () => {
         <stack.Screen  name='SearchScreen' component={SearchScreen}/>
         <stack.Screen  name='Home' component={Home}/>
         <stack.Screen  name='Details' component={Details}/>
-        <stack.Screen  name='Details2' component={Details2}/>
         <stack.Screen  name='VideoPlayer' component={VideoPlayer}/>
         <stack.Screen  name='Faq' component={Faq}/>
         <stack.Screen  name='CastDeatils' component={CastDetails}/>
     </stack.Navigator>
 
     
-    // <View>
-    //   <Text>Routes</Text>
-    // </View>
+    
   )
 }
 
