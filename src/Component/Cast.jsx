@@ -19,27 +19,19 @@ const Cast = ({data,  navigation}) => {
               
 
    
-              {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}` }} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} />
 
-               {`https://image.tmdb.org/t/p/w500/${item.profile_path}` ? (
-                // {data.id ?  (
-                  // {console.log("hello")}
-                        //  <Pressable 
-                        //    onPress={() => navigation.navigate('CastDeatils', {data: data} ) }   > 
 
-                <Image source={{ uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}` }} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} />
-                // </Pressable>    
-                  // ) : console.log("Not exist") }
-                
-        ) : (
-          <Image source={require('../../assets/Images/avatar.png')} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} />
 
-        )}  
-          */}
              {/* for js code different curly and for uri diffrent curly */}
+             <Pressable onPress={()=> navigation.navigate("CastDetails",
+             {
+                  data: item,
+                  name:"Tausif"
+                } 
+                ) }>        
            <Image source={ item.profile_path ? { uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}` } : require('../../assets/Images/avatar.png')              } style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} />
            {/* <Image source={{{ item.profile_path ?  uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}`: source={require('../../assets/Images/avatar.png') }}} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} /> */}
-
+           </Pressable>
                 <Text>{item.original_name}</Text>
 
               </View>

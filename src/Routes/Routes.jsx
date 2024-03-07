@@ -37,7 +37,7 @@ const Routes = () => {
         <stack.Screen  name='Details' component={Details}/>
         <stack.Screen  name='VideoPlayer' component={VideoPlayer}/>
         <stack.Screen  name='Faq' component={Faq}/>
-        <stack.Screen  name='CastDeatils' component={CastDetails}/>
+        <stack.Screen  name='CastDetails' component={CastDetails}/>
     </stack.Navigator>
 
     

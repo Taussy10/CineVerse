@@ -35,7 +35,6 @@ renderItem={({item}) => (
 )}
 />
 
-      <Text>SearchScreen</Text>
     </SafeAreaView>
   )
 }

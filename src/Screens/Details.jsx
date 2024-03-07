@@ -28,8 +28,6 @@ console.log(id, "Id from Details");
 
 
 function fetchData() {
-  
-
 // console.log(id);
 const options = {
   method: 'GET',
@@ -48,7 +46,6 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
   .catch(err => console.error(err));
 
 }
-
 
   
     return (
