@@ -25,13 +25,14 @@ const Routes = () => {
   return (
     
     // I want to things 1. intialRoutes so that I can use Splash Screen I can't use cause first screen is Home seen tabs function
-  // initialRouteName='Search' 
-    <stack.Navigator  screenOptions={{headerShown:false}}>
+  // initialRouteName='Home'
+    <stack.Navigator initialRouteName='Splash' screenOptions={{headerShown:false}}>
         {/* <stack.Screen name='Splash' component={Splash} /> */}
 
         {/* Made new screen for working with tab navigator*/}
-        <stack.Screen name='TabRoutes' component={Tabs} />
+        <stack.Screen name='TabRoutes' component={TabRoutes} />
         <stack.Screen  name='Search' component={Search}/>
+        <stack.Screen  name='Splash' component={Splash}/>
         <stack.Screen  name='SearchScreen' component={SearchScreen}/>
         <stack.Screen  name='Home' component={Home}/>
         <stack.Screen  name='Details' component={Details}/>
@@ -49,9 +50,9 @@ export default Routes
 
 // How did used Tab navigator 
 // 1. Created the tab Navigator in same file that we want 
-function Tabs() {
+function TabRoutes() {
   return (
-    <Tab.Navigator
+    <Tab.Navigator 
     screenOptions={{headerShown:false}}
     >
     

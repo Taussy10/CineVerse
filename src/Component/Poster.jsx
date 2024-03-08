@@ -28,20 +28,8 @@ export default function App() {
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
-      <View style={{position:'absolute',  alignItems:'center' ,   justifyContent:'center', left:13 }}> 
-        {/* <LinearGradient  
-   colors={['rgba(0,0,0,0.0)', '#000010', 'rgba(0,0,0,0.0)']} 
-   style={styles.gradient}
-  > */}
-
-
-
-
-        {/* <Text style={{fontSize: 70 , color:'white',         marginTop:20,
-        }}>Welcome</Text> 
-         <Text style={{fontSize: 20 , color:'white', marginBottom:50,}}>Watch millions of movies & TV shows</Text>  */}
-
-         {/* </LinearGradient> */}
+      <View style={{position:'absolute',  right:125, bottom:0  }}> 
+   
          <TouchableOpacity
   
           // title={status.isPlaying ? 'Pause' : 'Play'}

@@ -26,7 +26,6 @@ console.log(cast, "cast"); }, [])
 const id = data.id;
 console.log(id, "Id from Details");
 
-
 function fetchData() {
 // console.log(id);
 const options = {
@@ -59,7 +58,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
 
         {/* <View style={{  backgroundColor:'lightgreen',marginRight:10, marginLeft:10, marginTop:30  }}> */}
         <LinearGradient 
-       colors={['#141E30', "#243B55",'grey']} 
+       colors={['#141E30', "#243B55",'#bdc3c7']} 
       >
         <Pressable onPress={()=> navigation.navigate("Faq",  {
           data:data

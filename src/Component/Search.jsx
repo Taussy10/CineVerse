@@ -65,7 +65,7 @@ const [searchQuery, setSearchQuery] = useState('');
 
 
       <TextInput style={styles.input} 
-     placeholder='Search Movies'
+     placeholder='Search Movies....'
      keyboardType= 'default'
      value={searchQuery}
     //  Whenver the text change{in input tag} this functions occurs
