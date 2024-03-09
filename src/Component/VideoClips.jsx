@@ -62,7 +62,6 @@ const id = particularMovieData.id;
 
 
 <CardsTitle name ="Video Clips"  />
-{/* <Label title="Video Clips" /> */}
 
  <FlatList 
  horizontal
@@ -89,7 +88,7 @@ const id = particularMovieData.id;
         onChangeState={onStateChange}
         style={{backgroundColor:'green'}}
       />
-      <Text style={{fontSize:18, textAlign:'center', color:'white', fontWeight:'600'}}>{item.name.slice(0,38)}..</Text>
+      {/* <Text style={{fontSize:18, textAlign:'center', color:'white', fontWeight:'600'}}>{item.name.slice(0,38)}..</Text> */}
       {/* <Button title={playing ? "pause" : "play"} onPress={togglePlaying} /> */}
     {/* </View> */}
     </LinearGradient>

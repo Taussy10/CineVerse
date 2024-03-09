@@ -60,12 +60,9 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
         <LinearGradient 
        colors={['#141E30', "#243B55",'#bdc3c7']} 
       >
-        <Pressable onPress={()=> navigation.navigate("Faq",  {
-          data:data
-        })                     }> 
+       
       <Image style={styles.image} source={{uri:`https://image.tmdb.org/t/p/w500/${data.poster_path}`}}/>
         {/* </View> */}
-        </Pressable>
         <Text style={{fontSize:35, fontWeight:'700' , textAlign:'center' }}>{data.title}</Text>
         <Text style={{fontSize:30 }}>Overview</Text>
         {/* slice{slice means so it cut chars except when you say cut between two chars } function: when you use (10) it will remove first 10 character 
@@ -112,7 +109,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
      {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500//7UIm9RoBnlqS1uLlbElAY8urdWD.jpg` }}   style={{height:100, width:100, backgroundColor:'red'}}/> */}
      {/* <SimillarMovies particularMovieData={data}  navigation={navigation}/> */}
 
-     {/* <VideoClips particularMovieData={data}  /> */}
+     <VideoClips particularMovieData={data}  />
 
      </LinearGradient>
 

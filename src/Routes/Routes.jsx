@@ -6,7 +6,6 @@ import Home from '../Screens/Home'
 import Splash from '../Screens/Splash'
 import VideoPlayer from '../Screens/VideoPlayer'
 import Details from '../Screens/Details'
-import Faq from '../Component/Faq'
 import CastDetails from '../Screens/CastDetails'
 import Search from '../Component/Search'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -19,6 +18,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 const stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 import SearchScreen from '../Screens/SearchScreen'
+import Test from '../Screens/Test'
 
 const Routes = () => {
     
@@ -26,18 +26,17 @@ const Routes = () => {
     
     // I want to things 1. intialRoutes so that I can use Splash Screen I can't use cause first screen is Home seen tabs function
   // initialRouteName='Home'
-    <stack.Navigator initialRouteName='Splash' screenOptions={{headerShown:false}}>
-        {/* <stack.Screen name='Splash' component={Splash} /> */}
+    <stack.Navigator initialRouteName='TabRoutes' screenOptions={{headerShown:false}}>
+        <stack.Screen name='Splash' component={Splash} />
+        <stack.Screen name='Test' component={Test} />
 
         {/* Made new screen for working with tab navigator*/}
         <stack.Screen name='TabRoutes' component={TabRoutes} />
         <stack.Screen  name='Search' component={Search}/>
-        <stack.Screen  name='Splash' component={Splash}/>
         <stack.Screen  name='SearchScreen' component={SearchScreen}/>
         <stack.Screen  name='Home' component={Home}/>
         <stack.Screen  name='Details' component={Details}/>
         <stack.Screen  name='VideoPlayer' component={VideoPlayer}/>
-        <stack.Screen  name='Faq' component={Faq}/>
         <stack.Screen  name='CastDetails' component={CastDetails}/>
     </stack.Navigator>
 

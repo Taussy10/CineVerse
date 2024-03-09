@@ -11,7 +11,7 @@ const SimillarMovies = ({particularMovieData, navigation }) => {
 
     const [simillarMovies, setSimillarMovies] = useState([])
     const id = particularMovieData.id;
-
+  
     // console.log(id);
     
     const options = {

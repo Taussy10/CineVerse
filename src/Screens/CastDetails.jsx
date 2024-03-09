@@ -7,124 +7,184 @@ import { AntDesign } from '@expo/vector-icons';
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Entypo } from '@expo/vector-icons';
 
 const CastDetails = ({ route, navigation }) => {
   const [clicked, setClicked] = useState(false)
-
-  // const [castDetails, setCastDetails] = useState([]);
-  // useEffect(() => {
-  //   console.log(getApi() , "Not working ");
-  //   console.log(castDetails, "got the castDeatils");
-  
-  // }, [])
-
-//   const [cast, setCast] = useState([]);
-//   // route.params.parameterName 
- 
- 
-//   useEffect(() => {
-//    console.log(fetchData(), "hello" ); 
-//  console.log(cast, "cast"); }, [])
-
-// let data = route.params.data ;
-// console.log(data, "Got the data");
-//  data = data.id 
-//  console.log(data , "got the id ");
+  const [castDetails, setCastDetails] = useState([]);
 
 
+const names = route.params.name
+const datas = route.params.data
+console.log(names);
+// console.log(datas, "mil gaya");
 
+const id = datas.id
+// console.log(id);
 
-
-
-
-// function fetchData() {
-//   const options = {
-//     method: 'GET',
-//     headers: {
-//       accept: 'application/json',
-//       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWRjYzZmZWE0YjE0YmU3Njc1ZTgxMzNjZmViY2NlZiIsInN1YiI6IjY1MGRiMzRjM2Q3NDU0MDEzODdhYzhiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.invVJQqNIxcKdXNOLBVJ6UDCC99Kh0euwIFHXuUVmT4'
-//     }
-//   };
-  
-//   fetch(`https://api.themoviedb.org/3/person/${data}?language=en-US`, options)
+//  const options = {
+//   method: 'GET',
+//   headers: {
+//     accept: 'application/json',
+//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWRjYzZmZWE0YjE0YmU3Njc1ZTgxMzNjZmViY2NlZiIsInN1YiI6IjY1MGRiMzRjM2Q3NDU0MDEzODdhYzhiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.invVJQqNIxcKdXNOLBVJ6UDCC99Kh0euwIFHXuUVmT4'
+//   }
+// };
+// useEffect(() => {
+//   fetch(`https://api.themoviedb.org/3/person/${id}?language=en-US`, options)
 //     .then(response => response.json())
-//     .then(response => { 
-//    setCast(response.cast);
-//       console.log(response, "response")
+//     .then(response => {
+//       console.log(response); // Verify the structure of the response
+//       // Assuming the API response contains the details you want to display in FlatList
+//       const detailsArray = []; // Initialize an empty array to store details
+//       // Push necessary details into the array
+//       detailsArray.push({
+//         profile_path: response.profile_path, // Assuming profile_path is one of the details
+//         // Add other details here if needed
+//         name: response.name, 
+//         biography: response.biography, 
+//         gender: response.gender, 
+//         birthday: response.birthday, 
+//         known_for_department: response.known_for_department, 
+//         popularity: response.popularity, 
+//       });
+//       setCastDetails(detailsArray); // Set the array of details to castDetails
+//       console.log(detailsArray, "hello"); // Verify the updated state
+      
 //     })
 //     .catch(err => console.error(err));
-  
-//   }
-  
+// }, []);
+
+
+// Alaways use useffect otherwise whenever it mount it will console the code
+useEffect(() => {
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWRjYzZmZWE0YjE0YmU3Njc1ZTgxMzNjZmViY2NlZiIsInN1YiI6IjY1MGRiMzRjM2Q3NDU0MDEzODdhYzhiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.invVJQqNIxcKdXNOLBVJ6UDCC99Kh0euwIFHXuUVmT4'
+  }
+};
+
+// useEffect(() => {
+//   const fetchData = async () => {
+//     try {
+//       const response = await fetch(`https://api.themoviedb.org/3/person/${id}?language=en-US`, options);
+//       const data = await response.json();
+//       setCastDetails([data]); // Wrap data in an array if it's not already an array
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//   fetchData();
+// }, []); // Empty dependency array to run effect only once on component mount
+
+
+
+
+
+fetch(`https://api.themoviedb.org/3/person/${id}?language=en-US`, options)
+  .then(response => response.json())
+  .then(response => {    setCastDetails([response]) 
+    // What's need to put data into array
+    // ,console.log(response)
+  })
+  .catch(err => console.error(err));
+
+
+
+}, [])
+
+console.log(castDetails, "CastDetails");
+
+
+
+
 function toggleHEart() {
   setClicked(!clicked)
   
 }
   return (
-    <ScrollView>
+    // <ScrollView>
+
 
  <LinearGradient 
        colors={['#141E30', "#243B55",'#243B55']}
+
+       style={{flex:1,}}
        > 
    
     <SafeAreaView style={{flex:1 , padding:20, }} >
-      {/* <Header /> */}
+      <Header />
       <LinearGradient 
        colors={['#141E30', "#243B55",'grey']} 
       >
+
+
+
+
       <View style={{flexDirection:'row', justifyContent:'space-between'}}>
       <Ionicons name="chevron-back" size={35} color="white" onPress={()=> navigation.goBack() } />
       <AntDesign name="heart" size={35}  color={clicked? "grey":"red"} onPress={()=> toggleHEart()}    />  
+
+
           </View>
 
+          <FlatList 
+  data={castDetails}
+  renderItem={({item}) => (
+  <View>
 {/* Profile section in between */}
 <View style={{alignItems:'center',}}> 
 
  <View style={{height:200, width:200, borderRadius:100, padding:10, marginBottom:30,  }}>
 
-  <Image source={require('../../assets/Images/avatar.png')} style={styles.image}/>
+ <Image style={styles.image} source={{uri:`https://image.tmdb.org/t/p/w500/${item.profile_path}`}}/>
 
   </View>
-  <Text style={{fontSize:35,color:'white', fontWeight:'800'}}>Robert Downey Jr.</Text>
-  <Text style={{color:'white',fontSize:20,marginVertical:5, }}>Know more{"Link for knowing more "}</Text>
+  <Text style={{fontSize:35,color:'white', fontWeight:'800', marginBottom:20, }}>{item.name}</Text>
    
    {/* Details such Gender */}
-   <View style={{flexDirection:'row', gap:5, backgroundColor:'grey', padding:15, borderRadius:100, width: responsiveWidth(100), alignItems:'center', justifyContent:'center', marginBottom:18, marginTop:10, }}>
-
-    <View>
-      <Text style={styles.textColor}>Gender</Text>
-      <Text style={styles.textColor}>Male</Text>
-    </View>
-    <FontAwesome5 name="grip-lines-vertical" size={34} color="white" />
-
-    <View>
-      <Text style={styles.textColor}>Gender</Text>
-      <Text style={styles.textColor}>Male</Text>
-    </View>
-    <FontAwesome5 name="grip-lines-vertical" size={34} color="white" />
-
-    <View>
-      <Text style={styles.textColor}>Gender</Text>
-      <Text style={styles.textColor}>Male</Text>
-    </View>
-    <FontAwesome5 name="grip-lines-vertical" size={34} color="white" />
-
-    <View>
-      <Text style={styles.textColor}>Gender</Text>
-      <Text style={styles.textColor}>Male</Text>
-    </View>
+   {/* <View style={{flexDirection:'row', gap:5, backgroundColor:'grey', padding:25, borderRadius:100, width: responsiveWidth(90), height: responsiveHeight(10),  alignItems:'center', justifyContent:'center', marginBottom:18, marginTop:10, }}> */}
+   <View style={{flexDirection:'row', gap:24, }}>
+   <Text style={styles.textColor}>Gender</Text>
+   <Text style={styles.textColor}>Birthday</Text>
+   <Text style={styles.textColor}>Known for</Text>
    </View>
+   <View style={{borderColor:'black', borderWidth:1 }}> 
+
+   {/* Line */}
+   <View style={{borderColor:'white', borderWidth:1 , width: responsiveWidth(100)  }}>
+   
+   {/* <Text style={{fontSize:20 }}>Rating</Text> */}
+      </View>
+
+   </View>
+   <View style={{flexDirection:'row',gap:40}}>
+   <Text style={[styles.textColor , ]}>{item.gender ===1 ? "Female":"male"}</Text>
+   {/* <Text style={styles.textColor}>  {item.birthday === null ? "Hello" : item.birthday.slice(0, 4)}</Text> */}
+   <Text style={styles.textColor}>{item.birthday === null ?"NA":item.birthday.slice(0,4)   }</Text>
+   <Text style={styles.textColor}>{item.known_for_department}</Text>
+   
+   </View>
+   {/* </View> */}
+ {/* <ScrollView>  */}
+   
+    {/* <FontAwesome5 name="grip-lines-vertical" size={34} color="white" /> */}
+{/* <Entypo name="dots-three-vertical" size={20} color="white" /> */}
+  
+    {/* </ScrollView> */}
 
 
  
-   <Text style={{fontSize: 35, color:'white', marginBottom:10, }}>Biography</Text>
+   <Text style={{fontSize: 35, color:'white', marginBottom:10,  }}>Biography</Text>
 
  </View>
- <Text style={{fontSize: 18 , color:'white' }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, impedit quae laboriosam 
-  nesciunt saepe, perferendis odit sit a quaerat nihil distinctio dicta vero quo nobis obcaecati quod ut autem provident. Dignissimos nostrum tempore fugiat accusantium veniam. Hic, similique corrupti 
-  autem corporis inventore quam? Recusandae ab praesentium rem eaque dolorum maiores?</Text>
+ <Text style={{fontSize: 18 , color:'white',marginLeft:10 }}>{item.biography}</Text>
+  </View>
 
-
+)}
+/>
       {/* <FlatList
         data={cast}
         renderItem={({ item }) => (
@@ -139,7 +199,7 @@ function toggleHEart() {
     </SafeAreaView>
     </LinearGradient>
 
-    </ScrollView>
+    // </ScrollView>
 
   );
 };
@@ -151,8 +211,55 @@ const styles = StyleSheet.create({
   color:'white',
   fontSize: 16
  },
-image:{
+ image:{
   height:200, 
   width:200, 
-  borderRadius:100}
+  borderRadius:100,
+resizeMode:'stretch'}
 })
+
+
+// import { StyleSheet, Text, View } from 'react-native'
+// import React,{useState} from 'react'
+// import { SafeAreaView } from 'react-native-safe-area-context'
+
+// const CastDetails = ({route}) => {
+// const [castDetails, setCastDetails] = useState([])
+
+// const datas = route.params.data
+//   const id = datas.id
+//   // console.log(id, "Got id ");
+//   // console.log(datas,"CastDtails");
+
+
+//   const options = {
+//     method: 'GET',
+//     headers: {
+//       accept: 'application/json',
+//       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWRjYzZmZWE0YjE0YmU3Njc1ZTgxMzNjZmViY2NlZiIsInN1YiI6IjY1MGRiMzRjM2Q3NDU0MDEzODdhYzhiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.invVJQqNIxcKdXNOLBVJ6UDCC99Kh0euwIFHXuUVmT4'
+//     }
+//   };
+  
+//   fetch('https://api.themoviedb.org/3/person/54693?language=en-US', options)
+//     .then(response => response.json())
+//     .then(response => {  
+//     // We have to store the data to ourselves so we can  use it later 
+//       // console.log( setCastDetails(response, "CastDsetails") ); 
+//       // console.log(response)
+//     } 
+//       )
+//     .catch(err => console.error(err));
+// // console.log(castDetails, "got the image");
+
+
+
+//   return (
+//     <SafeAreaView>
+//       <Text>CastDetails</Text>
+//     </SafeAreaView>
+//   )
+// }
+
+// export default CastDetails
+
+// const styles = StyleSheet.create({})

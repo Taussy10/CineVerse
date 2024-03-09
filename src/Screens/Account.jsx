@@ -37,7 +37,7 @@ const Account = () => {
         {/* Person Name and Image container */}
         <View style={{ alignItems:'center', marginBottom:20,}}>
         <Image source={ require("../../assets/Images/actor.webp") } style={styles.image} />
-        <Text style={{fontSize:30,color:'white', fontWeight:'600', }}>Name: Tausif Raza</Text>
+        <Text style={{fontSize:30,color:'white', fontWeight:'600', }}>Name: John Doe</Text>
         </View>
       <FlatList
         data={faqData}
