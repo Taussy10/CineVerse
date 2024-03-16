@@ -170,7 +170,7 @@ function toggleHEart() {
    {/* </View> */}
  {/* <ScrollView>  */}
    
-    {/* <FontAwesome5 name="grip-lines-vertical" size={34} color="white" /> */}
+    {/* <FontAwesome5 naeme="grip-lines-vertical" size={34} color="white" /> */}
 {/* <Entypo name="dots-three-vertical" size={20} color="white" /> */}
   
     {/* </ScrollView> */}

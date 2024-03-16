@@ -18,7 +18,8 @@ const [searchResults, setSearchResults] = useState([]);
 //  to store searchInputs that you wrote so why it stored in the string: 
 // When the user submits the search query, you typically use it as a parameter 
 // in your API request. APIs usually expect search queries as strings.
-const [searchQuery, setSearchQuery] = useState('');
+const [searchInput, setSearchInput] = useState('');
+// searchInput
     
 // useEffect(() => {
 //  fetchSearchResults()
@@ -34,7 +35,7 @@ const [searchQuery, setSearchQuery] = useState('');
         }
       };
       
-      fetch(`https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=1`, options)
+      fetch(`https://api.themoviedb.org/3/search/movie?query=${searchInput}&include_adult=false&language=en-US&page=1`, options)
       .then(response => response.json())
         .then(response =>{
           // 2. API respnse results saves in setSearchResults array
@@ -67,10 +68,10 @@ const [searchQuery, setSearchQuery] = useState('');
       <TextInput style={styles.input} 
      placeholder='Search Movies....'
      keyboardType= 'default'
-     value={searchQuery}
+     value={searchInput}
     //  Whenver the text change{in input tag} this functions occurs
     // value is an parameter that we replaces with value 
-    onChangeText={text => setSearchQuery(text)} // Update here
+    onChangeText={text => setSearchInput(text)} // Update here
      />
 
      <TouchableOpacity style={{backgroundColor:'green' , justifyContent:'center',  borderTopRightRadius:20,
