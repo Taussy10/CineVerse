@@ -29,7 +29,7 @@ const Cast = ({data,  navigation}) => {
                   name:"Tausif"
                 } 
                 ) }>        
-           <Image source={ item.profile_path ? { uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}` } : require('../../assets/Images/avatar.png')              } style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} />
+           <Image source={ item.profile_path ? { uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}` } : require('../../assets/Images/avatar.png')} style={styles.profileImage} />
            {/* <Image source={{{ item.profile_path ?  uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}`: source={require('../../assets/Images/avatar.png') }}} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} /> */}
            </Pressable>
                 <Text>{item.original_name}</Text>
@@ -45,4 +45,12 @@ const Cast = ({data,  navigation}) => {
 
 export default Cast
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  profileImage:{ 
+    borderRadius: 62.5,
+     height: 125, 
+     width: 125, 
+     resizeMode: 'cover' 
+    }
+  
+})

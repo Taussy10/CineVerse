@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import Home from '../Screens/Home'
 import Splash from '../Screens/Splash'
 import VideoPlayer from '../Screens/VideoPlayer'
-import Details from '../Screens/Details'
+import MovieDetails from '../Screens/MovieDetails'
 import CastDetails from '../Screens/CastDetails'
 import Search from '../Component/Search'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -35,9 +35,11 @@ const Routes = () => {
         <stack.Screen  name='Search' component={Search}/>
         <stack.Screen  name='SearchScreen' component={SearchScreen}/>
         <stack.Screen  name='Home' component={Home}/>
-        <stack.Screen  name='Details' component={Details}/>
+        <stack.Screen  name='MovieDetails' component={MovieDetails}/>
         <stack.Screen  name='VideoPlayer' component={VideoPlayer}/>
-        <stack.Screen  name='CastDetails' component={CastDetails}/>
+        <stack.Screen  name='CastDetails' component={CastDetails}
+        options={{headerShown:false, title:"Cast"}}
+        />
     </stack.Navigator>
 
     

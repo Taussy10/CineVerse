@@ -26,7 +26,7 @@ const Cards = ({navigation, data}) => {
    style={styles.gradient}
   />
 
-  <Pressable  onPress={() => {navigation.navigate("Details", {
+  <Pressable  onPress={() => {navigation.navigate("MovieDetails", {
     data: item
   }) 
 } 

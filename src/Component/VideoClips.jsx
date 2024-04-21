@@ -52,7 +52,6 @@ const id = particularMovieData.id;
     })
     .catch(err => console.error(err));
 
-    // console.log(movieVideo ,"hello");
 
   return (
     // <ScrollView> 

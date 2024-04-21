@@ -11,7 +11,7 @@ import VideoClips from '../Component/VideoClips'
 // () 
 
    
-const Details = ({ route , navigation}) => {
+const MovieDetails = ({ route , navigation}) => {
   const [cast, setCast] = useState([]);
  // route.params.parameterName 
 
@@ -61,7 +61,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
        colors={['#141E30', "#243B55",'#bdc3c7']} 
       >
        
-      <Image style={styles.image} source={{uri:`https://image.tmdb.org/t/p/w500/${data.poster_path}`}}/>
+      <Image style={styles.posterImage} source={{uri:`https://image.tmdb.org/t/p/w500/${data.poster_path}`}}/>
         {/* </View> */}
         <Text style={{fontSize:35, fontWeight:'700' , textAlign:'center',color:'white'}}>{data.title}</Text>
         <Text style={{fontSize:30 }}>Overview</Text>
@@ -106,8 +106,7 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
              <Cast data={cast} navigation={navigation} />
          
 
-     {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500//7UIm9RoBnlqS1uLlbElAY8urdWD.jpg` }}   style={{height:100, width:100, backgroundColor:'red'}}/> */}
-     {/* <SimillarMovies particularMovieData={data}  navigation={navigation}/> */}
+
 
      <VideoClips particularMovieData={data}  />
 
@@ -119,13 +118,14 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
   )
 }
 
-export default Details
+export default MovieDetails
 
 const styles = StyleSheet.create({
-    image:{
+    posterImage:{
         height: responsiveHeight(70) ,
-        // width: responsiveWidth(90)
+        // width: responsiveWidth(90),
         borderRadius: 70,
+        // resizeMode: 'repeat'
 
     }
 })

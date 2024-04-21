@@ -21,40 +21,6 @@ console.log(names);
 
 const id = datas.id
 // console.log(id);
-
-//  const options = {
-//   method: 'GET',
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWRjYzZmZWE0YjE0YmU3Njc1ZTgxMzNjZmViY2NlZiIsInN1YiI6IjY1MGRiMzRjM2Q3NDU0MDEzODdhYzhiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.invVJQqNIxcKdXNOLBVJ6UDCC99Kh0euwIFHXuUVmT4'
-//   }
-// };
-// useEffect(() => {
-//   fetch(`https://api.themoviedb.org/3/person/${id}?language=en-US`, options)
-//     .then(response => response.json())
-//     .then(response => {
-//       console.log(response); // Verify the structure of the response
-//       // Assuming the API response contains the details you want to display in FlatList
-//       const detailsArray = []; // Initialize an empty array to store details
-//       // Push necessary details into the array
-//       detailsArray.push({
-//         profile_path: response.profile_path, // Assuming profile_path is one of the details
-//         // Add other details here if needed
-//         name: response.name, 
-//         biography: response.biography, 
-//         gender: response.gender, 
-//         birthday: response.birthday, 
-//         known_for_department: response.known_for_department, 
-//         popularity: response.popularity, 
-//       });
-//       setCastDetails(detailsArray); // Set the array of details to castDetails
-//       console.log(detailsArray, "hello"); // Verify the updated state
-      
-//     })
-//     .catch(err => console.error(err));
-// }, []);
-
-
 // Alaways use useffect otherwise whenever it mount it will console the code
 useEffect(() => {
 const options = {
@@ -65,19 +31,7 @@ const options = {
   }
 };
 
-// useEffect(() => {
-//   const fetchData = async () => {
-//     try {
-//       const response = await fetch(`https://api.themoviedb.org/3/person/${id}?language=en-US`, options);
-//       const data = await response.json();
-//       setCastDetails([data]); // Wrap data in an array if it's not already an array
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
 
-//   fetchData();
-// }, []); // Empty dependency array to run effect only once on component mount
 
 
 
@@ -116,8 +70,9 @@ function toggleHEart() {
    
     <SafeAreaView style={{flex:1 , padding:20, }} >
       <Header />
+      <ScrollView>
       <LinearGradient 
-       colors={['#141E30', "#243B55",'grey']} 
+       colors={['#141E30', "#243B55",'lightgrey']} 
       >
 
 
@@ -133,7 +88,7 @@ function toggleHEart() {
           <FlatList 
   data={castDetails}
   renderItem={({item}) => (
-  <View>
+  <View style={{flex:1,}}>
 {/* Profile section in between */}
 <View style={{alignItems:'center',}}> 
 
@@ -180,22 +135,17 @@ function toggleHEart() {
    <Text style={{fontSize: 35, color:'white', marginBottom:10,  }}>Biography</Text>
 
  </View>
- <Text style={{fontSize: 18 , color:'white',marginLeft:10 }}>{item.biography}</Text>
+
+
+ <Text style={{fontSize: 18 , color:'white',marginLeft:10 ,  }}>{item.biography}</Text>
   </View>
 
 )}
 />
-      {/* <FlatList
-        data={cast}
-        renderItem={({ item }) => (
-          <View>
-          <Text>Hello</Text>
 
-          </View>
-        )}
-      /> */}
+
           </LinearGradient>
-
+          </ScrollView>
     </SafeAreaView>
     </LinearGradient>
 
@@ -215,7 +165,7 @@ const styles = StyleSheet.create({
   height:200, 
   width:200, 
   borderRadius:100,
-resizeMode:'stretch'}
+resizeMode:'cover'}
 })
 
 
