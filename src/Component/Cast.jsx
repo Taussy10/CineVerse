@@ -6,7 +6,7 @@ const Cast = ({data,  navigation}) => {
  const nullImage =  <Image source={require('../../assets/Images/avatar.png')} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} />
   return (
     <View style={{flex:1}}>
-        <Text style={{textAlign:'center',  fontSize: 30,}}>Top Cast</Text>
+        <Text style={{textAlign:'center',  fontSize: 30, color:'lightgrey' , fontWeight:'800', marginTop:10, marginBottom:5,}}>Top Cast</Text>
 
       <FlatList
          horizontal
@@ -32,7 +32,7 @@ const Cast = ({data,  navigation}) => {
            <Image source={ item.profile_path ? { uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}` } : require('../../assets/Images/avatar.png')} style={styles.profileImage} />
            {/* <Image source={{{ item.profile_path ?  uri: `https://image.tmdb.org/t/p/w500/${item.profile_path}`: source={require('../../assets/Images/avatar.png') }}} style={{ borderRadius: 62.5, height: 125, width: 125, resizeMode: 'stretch' }} /> */}
            </Pressable>
-                <Text>{item.original_name}</Text>
+                <Text style={{color:'white'}}>{item.original_name}</Text>
 
               </View>
 

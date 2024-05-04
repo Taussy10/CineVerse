@@ -14,7 +14,7 @@ const VideoPlayer = ({route}) => {
   const video = React.useRef(null);
   const [status, setStatus] = React.useState({});
 const [movieVideo, setMovieVideo] = useState([])
-const [playing, setPlaying] = useState(false);
+const [playing, setPlaying] = useState(true);
 
 const onStateChange = useCallback((state) => {
   if (state === "ended") {

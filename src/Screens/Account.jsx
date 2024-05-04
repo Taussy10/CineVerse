@@ -30,14 +30,15 @@ const Account = () => {
 
     <LinearGradient style={{padding: 20,flex:1,}}
       //  colors={['#141E30', "#243B55",'grey']} 
-       colors={['#141E30', "#243B55",'#bdc3c7']} 
+      //  colors={['#141E30', "#243B55",'#6984a2']} 
+      colors={['#141E30', "#243B55",'#bdc3c7']}
       >
         <Header/>
 
         {/* Person Name and Image container */}
         <View style={{ alignItems:'center', marginBottom:20,}}>
         <Image source={ require("../../assets/Images/actor.webp") } style={styles.image} />
-        <Text style={{fontSize:30,color:'white', fontWeight:'600', }}>Name: John Doe</Text>
+        <Text style={{fontSize:30,color:'white', fontWeight:'800', }}>John Doe</Text>
         </View>
       <FlatList
         data={faqData}
@@ -45,14 +46,14 @@ const Account = () => {
 
           <TouchableOpacity onPress={() => toggleItem(index)} style={styles.itemContainer}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding:10 }}>
-              <Text style={{color:'black', fontSize:20}}>{item.question}</Text>
+              <Text style={{color:'lightgrey', fontSize:18 , fontWeight: 'bold'}}>{item.question}</Text>
               <AntDesign
                 name={showAnswer === index ? 'caretdown' : 'caretright'}
                 size={24}
-                color={ showAnswer === index ? "white": "black"}
+                color={ showAnswer === index ? "white": "lightgrey"}
               />
             </View>
-            {showAnswer === index && <Text style={[styles.textColor , {marginLeft:10,fontSize:20}]}>{item.answer}</Text>}
+            {showAnswer === index && <Text style={[styles.textColor , {marginLeft:10,fontSize:16}]}>{item.answer}</Text>}
           </TouchableOpacity>
         )}
         keyExtractor={(item, index) => index.toString()}

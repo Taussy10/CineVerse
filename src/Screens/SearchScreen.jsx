@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, FlatList , Image, Pressable} from 'react-native'
-import React from 'react'
+import React,{useEffect} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { LinearGradient } from 'expo-linear-gradient'
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
@@ -8,12 +8,20 @@ import Header from '../Component/Header'
 
 
 const SearchScreen = ({route, navigation}) => {
-    const data = route.params.data
+
+  data = route.params.data
+
+
+
+
+  
+
     console.log(data, "searchScreen");
   return (
     <SafeAreaView>
 <Header/>
 <FlatList 
+
 data={data}
 keyExtractor={(item) => item.id.toString()}
 renderItem={({item}) => (
@@ -23,7 +31,7 @@ renderItem={({item}) => (
           >
 
 
-    <Pressable onPress={()=> navigation.navigate("Details", {
+    <Pressable onPress={()=> navigation.navigate("MovieDetails", {
       data: item
 })  }>
  <Image source={item.backdrop_path ?{ uri: `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`}: require("../../assets/Images/no-results.png") } style={styles.image} />

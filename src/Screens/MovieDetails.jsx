@@ -63,26 +63,26 @@ fetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options
        
       <Image style={styles.posterImage} source={{uri:`https://image.tmdb.org/t/p/w500/${data.poster_path}`}}/>
         {/* </View> */}
-        <Text style={{fontSize:35, fontWeight:'700' , textAlign:'center',color:'white'}}>{data.title}</Text>
-        <Text style={{fontSize:30 }}>Overview</Text>
+        {/* <Text style={{fontSize:35, fontWeight:'700' , textAlign:'center',color:'white'}}>{data.title}</Text>
+        <Text style={{fontSize:30, color:'white' , marginTop: 20, textAlign:'center' }}>Overview</Text> */}
         {/* slice{slice means so it cut chars except when you say cut between two chars } function: when you use (10) it will remove first 10 character 
         but if you use (-10) then it will remove last characters but 
         if you use (0,10) it will remove all chacters except 1-10 chars */}
-        <Text style={{fontSize:25,color:'white'}}>{data.overview.slice(0,142)}... </Text>
+        <Text style={{fontSize:25,color:'white', textAlign:'center', marginTop: 20,}}>{data.overview.slice(0,142)}... </Text>
  
    <View style={{ flexDirection:'row', justifyContent:'space-between', marginBottom:5, marginTop:30}}>
-   <Text style={{fontSize:20 , fontWeight:'700',   }}>Laguage</Text>
-   <Text style={{fontSize:20, fontWeight:'700',  }}>Released date</Text>
-   <Text style={{fontSize:20, fontWeight:'700',  }}>Rating</Text>
+   <Text style={{fontSize:20 , fontWeight:'800', color:'lightgrey'  }}>Laguage</Text>
+   <Text style={{fontSize:20, fontWeight:'800', color:'lightgrey' }}>Released date</Text>
+   <Text style={{fontSize:20, fontWeight:'800', color:'lightgrey' }}>Rating</Text>
    </View>
 
-   <View style={{ flexDirection:'row', justifyContent:'space-between', alignItems:'center', }}>
+   <View style={{ flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginBottom: 30, }}>
    <Text style={{fontSize:20, textAlign:'center',  width: responsiveWidth(25), color:'white'  }}>{data.original_language}</Text>
    <Text style={{fontSize:20, color:'white' }}>{data.release_date}</Text>
    <Text style={{fontSize:20 , color:'white' }}>{data.vote_average}</Text>
    </View>
     
-    <View style={{borderColor:'black', borderWidth:1 }}>
+    <View style={{borderColor:'white', borderWidth:1 }}>
    
     {/* <Text style={{fontSize:20 }}>Rating</Text> */}
        </View>

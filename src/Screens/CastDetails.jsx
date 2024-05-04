@@ -72,7 +72,7 @@ function toggleHEart() {
       <Header />
       <ScrollView>
       <LinearGradient 
-       colors={['#141E30', "#243B55",'lightgrey']} 
+       colors={['#141E30', "#243B55",'#6984a2']} 
       >
 
 

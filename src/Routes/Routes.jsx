@@ -19,6 +19,7 @@ const stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 import SearchScreen from '../Screens/SearchScreen'
 import Test from '../Screens/Test'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const Routes = () => {
     
@@ -26,7 +27,10 @@ const Routes = () => {
     
     // I want to things 1. intialRoutes so that I can use Splash Screen I can't use cause first screen is Home seen tabs function
   // initialRouteName='Home'
-    <stack.Navigator initialRouteName='TabRoutes' screenOptions={{headerShown:false}}>
+    <stack.Navigator initialRouteName='TabRoutes'
+    
+    
+    screenOptions={{headerShown:false}}>
         <stack.Screen name='Splash' component={Splash} />
         <stack.Screen name='Test' component={Test} />
 
@@ -53,18 +57,44 @@ export default Routes
 // 1. Created the tab Navigator in same file that we want 
 function TabRoutes() {
   return (
+   
+  //  <LinearGradient  
+  //  colors={['#141E30', "white",'#243B55']} // Example gradient colors
+  //  style={{width:" 100%", alignItems:'center',}}
+  // >
     <Tab.Navigator 
-    screenOptions={{headerShown:false}}
+   
+    screenOptions={{headerShown:false , 
+      // tabBarStyle:{
+      //   position: 'absolute',
+      // // width: 20,
+      // bottom: 2,
+      // left: 20,
+      // right: 20,
+      // // backgroundColor: '#243b55',
+      // // backgroundColor: 'lightgrey',
+      // height: 80,
+      // borderRadius: 15
+      // }
+     }}
     >
     
    
     <Tab.Screen name="Home" component={Home}
     options={{
       tabBarLabel: "Home",
-      tabBarIcon: (
-          {color, size}
+     tabBarStyle: {
+      position: 'absolute',
+      bottom: 2,
+      left: 8,
+      right: 8,
+      backgroundColor: '#243b55',
+      height: 70,
+      borderRadius: 15      
+    },
+      tabBarIcon: ( {color, size}
         ) => (
-  <Ionicons name="home" size={24} color="black" />
+  <Ionicons name="home" size={24} color="white" />
 
           ) 
     }}
@@ -83,16 +113,28 @@ function TabRoutes() {
     <Tab.Screen name="Account" component={Account}
     options={{
       tabBarLabel: "Account",
+     tabBarStyle: {
+   position: 'absolute',
+      bottom: 2,
+      left: 20,
+      right: 20,
+      backgroundColor: '#243b55',
+      // // backgroundColor: 'lightgrey',
+      height: 70,
+      borderRadius: 15     
+     },
       tabBarIcon: (
           {color, size}
         ) => (
-<MaterialCommunityIcons name="account" size={24} color="black" />
+<MaterialCommunityIcons name="account" size={24} color="white" />
           ) 
     }}
     />
 
     </Tab.Navigator>
+
   );
 }
+    {/* </LinearGradient> */}
 
 const styles = StyleSheet.create({})

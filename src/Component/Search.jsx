@@ -1,6 +1,6 @@
 
 
-import { StyleSheet, Text, View , TextInput, FlatList, TouchableOpacity, ScrollView, Image, Pressable} from 'react-native'
+import { StyleSheet, Text, View , TextInput, FlatList, TouchableOpacity, ScrollView, Image, Pressable, ActivityIndicator} from 'react-native'
 import React,{useState, useEffect} from 'react'
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -12,6 +12,7 @@ const Search = ({navigation}) => {
 
 //3. In intially searchResults will have [API data]
 const [searchResults, setSearchResults] = useState([]);
+const [loading, setloading] = useState(false)
 
 
 
@@ -23,7 +24,7 @@ const [searchInput, setSearchInput] = useState('');
     
 // useEffect(() => {
 //  fetchSearchResults()
-// }, [])
+// }, [fetchSearchResults])
 
 
     function fetchSearchResults() {  
@@ -49,7 +50,7 @@ const [searchInput, setSearchInput] = useState('');
    const handleSearch = () => {
      fetchSearchResults();
  };
-//  console.log(fetchSearchResults()
+//  console.log(fetchSearchResults() , "HELlo")
 
 
 //  , "Search");
@@ -64,7 +65,6 @@ const [searchInput, setSearchInput] = useState('');
 
 
 
-
       <TextInput style={styles.input} 
      placeholder='Search Movies....'
      keyboardType= 'default'
@@ -74,20 +74,31 @@ const [searchInput, setSearchInput] = useState('');
     onChangeText={text => setSearchInput(text)} // Update here
      />
 
-     <TouchableOpacity style={{backgroundColor:'green' , justifyContent:'center',  borderTopRightRadius:20,
+<TouchableOpacity style={{backgroundColor:'green' , justifyContent:'center',  borderTopRightRadius:20,
   borderBottomRightRadius:20, padding:10}}
-      onPress={()=> { handleSearch(); 
-        navigation.navigate("SearchScreen",{
-          data: searchResults,
-        }) 
-       }}
-      // onPress={() => {
-      //   handleSearch();
-      //   navigation.navigate('Search'); // Navigate to the Search tab after searching
-      // }}
+
+  onPress={()=> { handleSearch(); 
+    navigation.navigate("SearchScreen",{
+      data: searchResults,
+    }) 
+   }}
+
+  // {
+  //   loading ? (<ActivityIndicator  />)
+  //   :(
+  //     <Text style= {{color: 'white',}}>Search</Text>
+  //   )}
+
+     
+      
+       
    >
+
+
   <Text style= {{color: 'white',}}>Search</Text>
       </TouchableOpacity>
+
+
       </View>
      </View>
   )
