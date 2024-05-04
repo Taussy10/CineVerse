@@ -11,12 +11,7 @@ const SearchScreen = ({route, navigation}) => {
 
   data = route.params.data
 
-
-
-
-  
-
-    console.log(data, "searchScreen");
+console.log(data, "searchScreen");
   return (
     <SafeAreaView>
 <Header/>

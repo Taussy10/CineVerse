@@ -81,18 +81,7 @@ const [searchInput, setSearchInput] = useState('');
     navigation.navigate("SearchScreen",{
       data: searchResults,
     }) 
-   }}
-
-  // {
-  //   loading ? (<ActivityIndicator  />)
-  //   :(
-  //     <Text style= {{color: 'white',}}>Search</Text>
-  //   )}
-
-     
-      
-       
-   >
+   }} >
 
 
   <Text style= {{color: 'white',}}>Search</Text>

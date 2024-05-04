@@ -20,9 +20,10 @@ const Account = () => {
     <LinearGradient
        colors={['#141E30', "#243B55",'#243B55']} style={{flex:1}}
        > 
-    <SafeAreaView style={{padding: 20,flex:1, }} >
+           <ScrollView style={{  flex:1, }}>
 
-    <ScrollView style={{  flex:1, }}>
+    {/* <SafeAreaView style={{padding: 20,flex:1, }} > */}
+
   {/* <LinearGradient
        colors={['#141E30', "#243B55",'#243B55']}
        >  */}
@@ -63,8 +64,9 @@ const Account = () => {
     {/* </SafeAreaView> */}
     {/* </LinearGradient> */}
 
+    {/* </SafeAreaView>  */}
     </ScrollView>
-    </SafeAreaView> 
+
     </LinearGradient>
   );
 };
