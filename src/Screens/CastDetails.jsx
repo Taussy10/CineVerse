@@ -59,7 +59,7 @@ function toggleHEart() {
   
 }
   return (
-    // <ScrollView>
+    <ScrollView>
 
 
  <LinearGradient 
@@ -70,7 +70,7 @@ function toggleHEart() {
    
     <SafeAreaView style={{flex:1 , padding:20, }} >
       <Header />
-      <ScrollView>
+      {/* <ScrollView> */}
       <LinearGradient 
        colors={['#141E30', "#243B55",'#6984a2']} 
       >
@@ -145,11 +145,11 @@ function toggleHEart() {
 
 
           </LinearGradient>
-          </ScrollView>
+          {/* </ScrollView> */}
     </SafeAreaView>
     </LinearGradient>
 
-    // </ScrollView>
+    </ScrollView>
 
   );
 };

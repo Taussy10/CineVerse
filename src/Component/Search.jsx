@@ -13,7 +13,14 @@ const Search = ({navigation}) => {
 //3. In intially searchResults will have [API data]
 const [searchResults, setSearchResults] = useState([]);
 const [loading, setloading] = useState(false)
-
+// by using useEffect when something will happen{Changing searhResults in input tag{that's why in arra we have search results}} it will render the data
+useEffect(() => {
+  if (searchResults.length > 0) {
+    navigation.navigate("SearchScreen", {
+      data: searchResults,
+    });
+  }
+}, [searchResults]);
 
 
 //  to store searchInputs that you wrote so why it stored in the string: 
@@ -49,6 +56,9 @@ const [searchInput, setSearchInput] = useState('');
 // 1. when I click API function respond and give data
    const handleSearch = () => {
      fetchSearchResults();
+    //  navigation.navigate("SearchScreen",{
+    //   data: searchResults,
+    // }) 
  };
 //  console.log(fetchSearchResults() , "HELlo")
 
@@ -66,6 +76,8 @@ const [searchInput, setSearchInput] = useState('');
 
 
       <TextInput style={styles.input} 
+ 
+      
      placeholder='Search Movies....'
      keyboardType= 'default'
      value={searchInput}
@@ -77,11 +89,15 @@ const [searchInput, setSearchInput] = useState('');
 <TouchableOpacity style={{backgroundColor:'green' , justifyContent:'center',  borderTopRightRadius:20,
   borderBottomRightRadius:20, padding:10}}
 
-  onPress={()=> { handleSearch(); 
-    navigation.navigate("SearchScreen",{
-      data: searchResults,
-    }) 
-   }} >
+  // Bad approach
+  // onPress={()=> { handleSearch(); 
+  //   navigation.navigate("SearchScreen",{
+  //     data: searchResults,
+  //   }) 
+  //  }}
+
+  onPress={handleSearch}
+  >
 
 
   <Text style= {{color: 'white',}}>Search</Text>

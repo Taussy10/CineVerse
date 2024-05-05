@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, FlatList , Image, Pressable} from 'react-native'
-import React,{useEffect} from 'react'
+import { StyleSheet, Text, View, FlatList , Image, Pressable , RefreshControl} from 'react-native'
+import React,{useEffect , useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { LinearGradient } from 'expo-linear-gradient'
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions'
@@ -8,14 +8,26 @@ import Header from '../Component/Header'
 
 
 const SearchScreen = ({route, navigation}) => {
-
+const [refreshing, setrefreshing] = useState(false)
   data = route.params.data
+
+  const onRefresh = () => {
+    setrefreshing(true)
+    setTimeout(() => {
+      setrefreshing(false)
+    }, 3000);
+  }
+
 
 console.log(data, "searchScreen");
   return (
     <SafeAreaView>
 <Header/>
 <FlatList 
+
+refreshControl={
+  <RefreshControl   refreshing={refreshing} onRefresh={() => onRefresh()}  />
+}
 
 data={data}
 keyExtractor={(item) => item.id.toString()}
