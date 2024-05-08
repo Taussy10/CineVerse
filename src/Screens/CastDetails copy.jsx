@@ -84,6 +84,7 @@ function toggleHEart() {
 
 
           </View>
+{/* <ScrollView > */}
 
           <FlatList 
   data={castDetails}
@@ -142,6 +143,7 @@ function toggleHEart() {
 
 )}
 />
+{/* </ScrollView> */}
 
 
           </LinearGradient>
@@ -149,7 +151,7 @@ function toggleHEart() {
     </SafeAreaView>
     </LinearGradient>
 
-    </ScrollView>
+     </ScrollView>
 
   );
 };

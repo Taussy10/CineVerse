@@ -23,7 +23,7 @@ const Cast = ({data,  navigation}) => {
 
 
              {/* for js code different curly and for uri diffrent curly */}
-             <Pressable onPress={()=> navigation.navigate("CastDetails",
+             <Pressable onPress={()=> navigation.push("CastDetails",
              {
                   data: item,
                   name:"Tausif"

@@ -4,8 +4,8 @@ import Svg, { Circle, Path, Defs, LinearGradient, Stop } from "react-native-svg"
 function LogoSVG(props) {
   return (
     <Svg
-      width={130}
-      height={51}
+      width={300}
+      height={500}
       viewBox="0 0 131 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

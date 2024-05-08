@@ -27,7 +27,7 @@ const Routes = () => {
     
     // I want to things 1. intialRoutes so that I can use Splash Screen I can't use cause first screen is Home seen tabs function
   // initialRouteName='Home'
-    <stack.Navigator initialRouteName='TabRoutes'
+    <stack.Navigator initialRouteName='Splash'
     
     
     screenOptions={{headerShown:false}}>
