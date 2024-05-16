@@ -20,7 +20,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 const stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 import SearchScreen from '../Screens/SearchScreen';
-import Test from '../Screens/Test';
+// import Test from '../Screens/Test';
 
 const Routes = ({ theme }) => {
     return (
