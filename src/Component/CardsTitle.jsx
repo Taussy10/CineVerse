@@ -1,21 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { responsiveFontSize } from 'react-native-responsive-dimensions'
-import { LinearGradient } from 'expo-linear-gradient'
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { responsiveFontSize } from 'react-native-responsive-dimensions';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Text, withTheme } from 'react-native-paper';
 
-const CardsTitle = ({name}) => {
-  return (
-    <View style={{ flex:1}}>
-       <LinearGradient  
-   colors={['#141E30', "white",'#243B55']} // Example gradient colors
-   style={{width:" 100%", alignItems:'center',}}
-  >
-      <Text style={{color:'black' , fontWeight:'bold', fontSize: 20  }}>{name}</Text>
-      </LinearGradient>
-    </View>
-  )
-}
+const CardsTitle = ({ name, theme }) => {
+    const spacing = 10;
 
-export default CardsTitle
+    return (
+        <View
+            style={{
+                flex: 1,
+                padding: spacing,
+                background: theme.colors.primaryContainer,
+            }}
+        >
+            <Text
+                variant='titleLarge'
+                style={{
+                    color: theme.colors.primary,
+                }}
+            >
+                {name}
+            </Text>
+        </View>
+    );
+};
 
-const styles = StyleSheet.create({})
+export default withTheme(CardsTitle);
+
+const styles = StyleSheet.create({});

@@ -16,7 +16,7 @@ const CastDetails = ({ route, navigation }) => {
 
 const names = route.params.name
 const datas = route.params.data
-console.log(names);
+// console.log(names);
 // console.log(datas, "mil gaya");
 
 const id = datas.id
