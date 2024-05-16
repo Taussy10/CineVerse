@@ -6,8 +6,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
+// import { LinearGradient } from 'expo-linear-gradient';
 import { Entypo } from '@expo/vector-icons';
+// import Avatar from 'react-native-paper/lib/typescript/components/Avatar/AvatarIcon';
+import { Avatar } from 'react-native-paper';
+
 
 const CastDetails = ({ route, navigation }) => {
   const [clicked, setClicked] = useState(false)
@@ -62,18 +65,18 @@ function toggleHEart() {
     <ScrollView>
 
 
- <LinearGradient 
+ {/* <LinearGradient 
        colors={['#141E30', "#243B55",'#243B55']}
 
        style={{flex:1,}}
-       > 
+       >  */}
    
     <SafeAreaView style={{flex:1 , padding:20, }} >
       <Header />
       {/* <ScrollView> */}
-      <LinearGradient 
+      {/* <LinearGradient 
        colors={['#141E30', "#243B55",'#6984a2']} 
-      >
+      > */}
 
 
 
@@ -95,9 +98,9 @@ function toggleHEart() {
 
  <View style={{height:200, width:200, borderRadius:100, padding:10, marginBottom:30,  }}>
 
- <Image style={styles.image} source={{uri:`https://image.tmdb.org/t/p/w500/${item.profile_path}`}}/>
-
+ <Avatar.Image size={200}  source={{uri:`https://image.tmdb.org/t/p/w500/${item.profile_path}`}} style={styles.image}  />
   </View>
+
   <Text style={{fontSize:35,color:'white', fontWeight:'800', marginBottom:20, }}>{item.name}</Text>
    
    {/* Details such Gender */}
@@ -141,15 +144,29 @@ function toggleHEart() {
  <Text style={{fontSize: 18 , color:'white',marginLeft:10 ,  }}>{item.biography}</Text>
   </View>
 
+
+
+
+
+
 )}
+// ListHeaderComponent={
+// <View>
+// <View style={{height:200, width:200, borderRadius:100, padding:10, marginBottom:30,  }}>
+
+// <Avatar.Image size={200}  source={{uri:`https://image.tmdb.org/t/p/w500/${item.profile_path}`}} style={styles.image}  />
+//  </View>
+// </View>
+
+// }
 />
 {/* </ScrollView> */}
 
 
-          </LinearGradient>
+          {/* </LinearGradient> */}
           {/* </ScrollView> */}
     </SafeAreaView>
-    </LinearGradient>
+    {/* </LinearGradient> */}
 
      </ScrollView>
 

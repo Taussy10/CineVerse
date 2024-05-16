@@ -6,6 +6,7 @@ import Home from '../Screens/Home';
 import Splash from '../Screens/Splash';
 import VideoPlayer from '../Screens/VideoPlayer';
 import MovieDetails from '../Screens/MovieDetails';
+import CastDetails from '../Screens/CastDetails';
 // import CastDetails from '../Screens/CastDetails';
 import Search from '../Component/Search';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -34,10 +35,10 @@ const Routes = ({ theme }) => {
                 name='Splash'
                 component={Splash}
             />
-            <stack.Screen
+            {/* <stack.Screen
                 name='Test'
                 component={Test}
-            />
+            /> */}
 
             {/* Made new screen for working with tab navigator*/}
             <stack.Screen
@@ -65,11 +66,11 @@ const Routes = ({ theme }) => {
                 name='VideoPlayer'
                 component={VideoPlayer}
             />
-            {/* <stack.Screen
+            <stack.Screen
                 name='CastDetails'
                 component={CastDetails}
                 options={{ headerShown: false, title: 'Cast' }}
-            /> */}
+            />
         </stack.Navigator>
     );
 };
